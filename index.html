@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil - Very Hidayat</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+    body.dark {
+      background: #121212;
+      color: #eee;
+    }
+
+    header {
+      background: #0077ff;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* Slider */
+    .slider {
+      position: relative;
+      overflow: hidden;
+      height: 350px;
+      border-radius: 15px;
+      margin: 20px 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .slides img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 15px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slides img.active {
+      opacity: 1;
+    }
+
+    /* Section */
+    section {
+      padding: 40px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0077ff;
+    }
+
+    /* Dark mode button */
+    .dark-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0077ff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .dark-btn:hover {
+      background: #005bbb;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0077ff;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Very Hidayat</h1>
+    <p>"No high no risk"</p>
+    <nav>
+      <a href="#profile">Profile</a>
+      <a href="#tentang">Tentang Saya</a>
+      <a href="#porto">Porto</a>
+      <a href="#sosial">Sosial</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- SLIDER -->
+    <div class="slider">
+      <div class="slides">
+        <img src="https://picsum.photos/id/1011/1000/350" class="active" alt="slide1">
+        <img src="https://picsum.photos/id/1015/1000/350" alt="slide2">
+        <img src="https://picsum.photos/id/1019/1000/350" alt="slide3">
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <section id="profile">
+      <h2>Profile</h2>
+      <p>Halo, saya Very Hidayat. Seorang Mandor, Trader, dan Investment Enthusiast.</p>
+    </section>
+
+    <!-- TENTANG SAYA -->
+    <section id="tentang">
+      <h2>Tentang Saya</h2>
+      <p>Saya memiliki pengalaman dalam mengelola proyek konstruksi, berdagang, dan juga aktif dalam dunia investasi. Prinsip saya: "No high no risk".</p>
+    </section>
+
+    <!-- PORTO -->
+    <section id="porto">
+      <h2>Portofolio</h2>
+      <p>Beberapa karya dan pengalaman saya:</p>
+      <ul>
+        <li>Proyek konstruksi bangunan perumahan</li>
+        <li>Trading forex & crypto</li>
+        <li>Investasi jangka panjang di sektor saham</li>
+      </ul>
+    </section>
+
+    <!-- SOSIAL -->
+    <section id="sosial">
+      <h2>Sosial</h2>
+      <p>Hubungi saya melalui:</p>
+      <ul>
+        <li>Email: veryhidayat@email.com</li>
+        <li>Instagram: @veryhidayat</li>
+        <li>LinkedIn: linkedin.com/in/veryhidayat</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Very Hidayat - All Rights Reserved</p>
+  </footer>
+
+  <!-- Dark Mode Button -->
+  <button class="dark-btn" onclick="toggleDarkMode()">🌙 Mode</button>
+
+  <script>
+    // DARK MODE
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+    }
+
+    // SLIDER FADE
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slides img");
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 4000); // ganti tiap 4 detik
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
