@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Very Hidayat</title>
+  <style>
+    /* RESET */
+    * {margin:0; padding:0; box-sizing:border-box;}
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+      background: #121212;
+      color: #eee;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      position: relative;
+    }
+    header h1 { font-size: 2.5rem; }
+    header p { font-size: 1.2rem; margin-top: 10px; }
+    header em { font-style: italic; opacity: 0.9; }
+
+    /* Dark mode button */
+    .dark-toggle {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: white;
+      color: #2a5298;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+    body.dark .dark-toggle {
+      background: #2a5298;
+      color: white;
+    }
+
+    /* Slider */
+    .slider {
+      position: relative;
+      max-width: 900px;
+      margin: 50px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+    .slides img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    /* Fade mode */
+    .slides.fade {
+      position: relative;
+    }
+    .slides.fade img {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      top: 0; left: 0;
+    }
+    .slides.fade img.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    /* Tombol Slider */
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    .prev { left: 15px; }
+    .next { right: 15px; }
+
+    /* Dot navigasi */
+    .dots {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .dot {
+      height: 12px; width: 12px;
+      margin: 0 5px;
+      background: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .dot.active { background: #2a5298; }
+
+    /* Section */
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+    h2 { margin-bottom: 20px; }
+
+    /* Contact button */
+    .contact a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      text-decoration: none;
+      background: #2a5298;
+      color: white;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .contact a:hover { background: #1e3c72; }
+
+    /* Scroll to Top */
+    .to-top {
+      position: fixed;
+      bottom: 20px; right: 20px;
+      background: #2a5298;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      font-size: 1.2rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    }
+    .to-top.show { display: block; }
+
+    /* Animasi scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Very Hidayat</h1>
+    <p>Mandor • Trader • Investment</p>
+    <em>"No high no risk"</em>
+    <button class="dark-toggle">🌙 Mode</button>
+  </header>
+
+  <!-- Slider -->
+  <div class="slider">
+    <div class="slides">
+      <img src="https://picsum.photos/900/400?random=1" alt="Slide 1" class="active">
+      <img src="https://picsum.photos/900/400?random=2" alt="Slide 2">
+      <img src="https://picsum.photos/900/400?random=3" alt="Slide 3">
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <!-- Dots -->
+  <div class="dots"></div>
+
+  <!-- About -->
+  <section class="fade-in">
+    <h2>Tentang Saya</h2>
+    <p>Saya adalah seorang mandor sekaligus trader dan investment enthusiast. 
+       Fokus saya adalah membangun dan mengelola proyek secara profesional 
+       serta mengembangkan strategi keuangan yang berkelanjutan.</p>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact fade-in">
+    <h2>Kontak</h2>
+    <a href="mailto:very@email.com">Email</a>
+    <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com/username" target="_blank">Instagram</a>
+  </section>
+
+  <!-- Scroll to top -->
+  <button class="to-top">↑</button>
+
+  <script>
+    // ==== SLIDER ====
+    const slides = document.querySelector(".slides");
+    let images = document.querySelectorAll(".slides img");
+    const prev = document.querySelector(".prev");
+    const next = document.querySelector(".next");
+    const dotsContainer = document.querySelector(".dots");
+    let index = 0;
+    let slideInterval;
+    let fadeMode = false; // default slide mode
+
+    // Buat dot
+    images.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      if (i === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlide(i) {
+      index = (i + images.length) % images.length;
+      if (fadeMode) {
+        images.forEach(img => img.classList.remove("active"));
+        images[index].classList.add("active");
+      } else {
+        slides.style.transform = `translateX(${-index * 100}%)`;
+      }
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[index].classList.add("active");
+    }
+    function nextSlide() { showSlide(index + 1); }
+    function prevSlide() { showSlide(index - 1); }
+    function goToSlide(i) { showSlide(i); }
+
+    prev.addEventListener("click", prevSlide);
+    next.addEventListener("click", nextSlide);
+
+    // Auto slide
+    function startAutoSlide() { slideInterval = setInterval(nextSlide, 4000); }
+    function stopAutoSlide() { clearInterval(slideInterval); }
+    startAutoSlide();
+
+    document.querySelector(".slider").addEventListener("mouseover", stopAutoSlide);
+    document.querySelector(".slider").addEventListener("mouseout", startAutoSlide);
+
+    // ==== DARK MODE ====
+    const toggleBtn = document.querySelector(".dark-toggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+
+    // ==== SCROLL TO TOP ====
+    const toTop = document.querySelector(".to-top");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        toTop.classList.add("show");
+      } else {
+        toTop.classList.remove("show");
+      }
+    });
+    toTop.addEventListener("click", () => {
+      window.scrollTo({top:0, behavior:"smooth"});
+    });
+
+    // ==== ANIMASI SCROLL ====
+    const faders = document.querySelectorAll(".fade-in");
+    window.addEventListener("scroll", () => {
+      faders.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add("show");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
