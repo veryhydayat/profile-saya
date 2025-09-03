@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Very Hidayat</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background:#0d1117; color:#eee;
+      line-height:1.6; scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
+
+    /* Particles Background */
+    #particles-js {
+      position:fixed; top:0; left:0;
+      width:100%; height:100%;
+      z-index:-1;
+    }
+
+    /* Header */
+    header {
+      background:rgba(0,0,0,0.6); backdrop-filter: blur(6px);
+      position:fixed; top:0; left:0; width:100%;
+      padding:15px 40px;
+      display:flex; justify-content:space-between; align-items:center;
+      z-index:1000;
+    }
+    header h1 { font-size:20px; color:#fff; }
+    nav { display:flex; gap:20px; }
+    nav a {
+      text-decoration:none; color:#fff; font-weight:500;
+      position:relative; padding:5px 0;
+    }
+    nav a::after {
+      content:""; position:absolute; left:0; bottom:0;
+      width:0; height:2px; background:#00d4ff; transition:0.3s;
+    }
+    nav a:hover::after, nav a.active::after { width:100%; }
+
+    .menu-btn { display:none; cursor:pointer; font-size:22px; color:#fff; }
+    @media(max-width:768px){
+      nav { display:none; flex-direction:column; background:rgba(0,0,0,0.8); position:absolute; top:60px; right:20px; padding:15px; border-radius:10px; }
+      nav.show { display:flex; }
+      .menu-btn { display:block; }
+    }
+
+    /* Section */
+    section {
+      min-height:100vh;
+      padding:100px 20px;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center; color:#fff;
+    }
+    h2 { margin-bottom:20px; font-size:28px; }
+    .hero h2 { font-size:36px; }
+    .typing { border-right:2px solid #00d4ff; white-space:nowrap; overflow:hidden; }
+
+    /* Portfolio */
+    .portfolio-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px; width:90%; max-width:1000px;
+    }
+    .card {
+      background:rgba(255,255,255,0.1); border-radius:10px; overflow:hidden;
+      box-shadow:0 2px 8px rgba(0,0,0,0.3); transition:transform 0.3s;
+    }
+    .card:hover { transform:scale(1.05); }
+    .card img { width:100%; height:150px; object-fit:cover; }
+    .card h3 { padding:10px; }
+
+    /* Sosial */
+    .social-links { display:flex; gap:15px; margin-top:20px; }
+    .social-links a {
+      font-size:24px; color:#00d4ff; transition:0.3s;
+    }
+    .social-links a:hover { transform:scale(1.2); color:#00aacc; }
+
+    /* Contact */
+    form {
+      display:flex; flex-direction:column; gap:12px;
+      width:90%; max-width:400px;
+    }
+    input, textarea {
+      padding:10px; border:1px solid #444; border-radius:8px;
+      background:rgba(255,255,255,0.05); color:#fff;
+    }
+    input:focus, textarea:focus { border-color:#00d4ff; outline:none; }
+    button {
+      background:#00d4ff; color:#000; padding:10px; border:none; border-radius:8px; cursor:pointer;
+      transition:0.3s;
+    }
+    button:hover { background:#00aacc; }
+
+    /* Scroll animation */
+    .reveal { opacity:0; transform:translateY(30px); transition:0.8s ease; }
+    .reveal.active { opacity:1; transform:translateY(0); }
+  </style>
+</head>
+<body>
+  <!-- Background -->
+  <div id="particles-js"></div>
+
+  <!-- Header -->
+  <header>
+    <h1>Very Hidayat</h1>
+    <div class="menu-btn">☰</div>
+    <nav>
+      <a href="#profile" class="active">Profile</a>
+      <a href="#about">Tentang Saya</a>
+      <a href="#portfolio">Porto</a>
+      <a href="#social">Sosial</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <!-- Sections -->
+  <section id="profile" class="hero">
+    <h2 class="typing"></h2>
+    <p>"No high no risk"</p>
+  </section>
+
+  <section id="about" class="reveal">
+    <h2>Tentang Saya</h2>
+    <p>Saya adalah seorang Mandor, Trader, dan Investment dari Indonesia.</p>
+  </section>
+
+  <section id="portfolio" class="reveal">
+    <h2>Portofolio</h2>
+    <div class="portfolio-grid">
+      <div class="card"><img src="https://picsum.photos/400/200?1"><h3>Project 1</h3></div>
+      <div class="card"><img src="https://picsum.photos/400/200?2"><h3>Project 2</h3></div>
+      <div class="card"><img src="https://picsum.photos/400/200?3"><h3>Project 3</h3></div>
+    </div>
+  </section>
+
+  <section id="social" class="reveal">
+    <h2>Sosial</h2>
+    <div class="social-links">
+      <a href="#">🌐</a>
+      <a href="#">🐦</a>
+      <a href="#">📸</a>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <h2>Kontak</h2>
+    <form>
+      <input type="text" placeholder="Nama" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Pesan" rows="4" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+    // Typing Effect
+    const text = "Halo, saya Very Hidayat";
+    let idx = 0;
+    function typing(){
+      if(idx < text.length){
+        document.querySelector(".typing").textContent += text.charAt(idx);
+        idx++; setTimeout(typing,100);
+      }
+    }
+    typing();
+
+    // Menu responsive
+    const menuBtn = document.querySelector(".menu-btn");
+    const nav = document.querySelector("nav");
+    menuBtn.addEventListener("click",()=> nav.classList.toggle("show"));
+
+    // Scroll spy + reveal
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+    window.addEventListener("scroll",()=>{
+      let top = window.scrollY;
+      sections.forEach(sec=>{
+        let offset=sec.offsetTop-150, height=sec.offsetHeight, id=sec.getAttribute("id");
+        if(top>=offset && top<offset+height){
+          navLinks.forEach(link=>link.classList.remove("active"));
+          document.querySelector("nav a[href*="+id+"]").classList.add("active");
+          sec.classList.add("active","reveal");
+        }
+      });
+      document.querySelectorAll(".reveal").forEach(el=>{
+        let pos = el.getBoundingClientRect().top;
+        if(pos < window.innerHeight-100) el.classList.add("active");
+      });
+    });
+
+    // Particles.js config
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 90 },
+        color: { value: "#00d4ff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        line_linked: { enable: true, distance: 150, color: "#00d4ff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          grab: { distance: 200, line_linked: { opacity: 0.8 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
